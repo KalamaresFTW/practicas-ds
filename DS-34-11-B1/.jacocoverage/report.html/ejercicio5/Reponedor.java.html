@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>Reponedor.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;DS-34-11-B1&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">ejercicio5</a> &gt; <span class="el_source">Reponedor.java</span></div><h1>Reponedor.java</h1><pre class="source lang-java linenums">package ejercicio5;
+
+/**
+ * Clase que representa un reponedor, añade a trabajador el campo datosEmpresa.
+ * En este campo se podría poner una clase que representase una empresa con
+ * todos sus datos, pero hemos puesto un String en el que se guarda el nombre de
+ * la empresa de procedencia, por hacerlo mas sencillo más que nada.
+ *
+ * @author p.costa          (Pablo Costa Oubiña)
+ * @author pablo.aragunde   (Pablo Aragunde Canabal)
+ */
+public class Reponedor extends Trabajador {
+
+    private String datosEmpresa;
+
+    /**
+     * Constructor de la clase reponedor
+     *
+     * @param nombre
+     * @param apellido1
+     * @param apellido2
+     * @param dni
+     * @param direccion
+     * @param telefono
+     * @param nss
+     * @param salario
+     * @param turno
+     * @param datosEmpresa
+     */
+    public Reponedor(String nombre,
+            String apellido1,
+            String apellido2,
+            String dni,
+            String direccion,
+            String telefono,
+            String nss,
+            double salario,
+            Turno turno,
+            String datosEmpresa) {
+<span class="fc" id="L40">        super(nombre, apellido1, apellido2, dni, direccion, telefono,</span>
+                nss, salario, turno);
+<span class="fc" id="L42">        this.datosEmpresa = datosEmpresa;</span>
+<span class="fc" id="L43">    }</span>
+    
+    /**
+     * Devuelve el atributo datosEmpresa
+     * @return datosEmpresa (String)
+     */
+    public String getDatosEmpresa() {
+<span class="fc" id="L50">        return datosEmpresa;</span>
+    }
+    
+    /**
+     * Permite cambiar el atributo datosEmpresa
+     * @param datosEmpresa (String)
+     */
+    public void setDatosEmpresa(String datosEmpresa){
+<span class="fc" id="L58">        this.datosEmpresa = datosEmpresa;</span>
+<span class="fc" id="L59">    }</span>
+    
+    @Override
+    public String toString() {
+<span class="fc" id="L63">        return super.toString()</span>
+                + &quot;\nReponedor:&quot;
+                + &quot;\n\tDatos Empresa: &quot; + datosEmpresa;
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.5.201505241946</span></div></body></html>

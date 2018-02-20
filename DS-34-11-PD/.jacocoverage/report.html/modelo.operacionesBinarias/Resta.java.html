@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>Resta.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;DS-34-11-PD&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">modelo.operacionesBinarias</a> &gt; <span class="el_source">Resta.java</span></div><h1>Resta.java</h1><pre class="source lang-java linenums">package modelo.operacionesBinarias;
+
+import modelo.Operando;
+
+/**
+ *
+ * @author Pablo
+ */
+public class Resta implements OperacionBinaria {
+
+<span class="fc" id="L11">    private static OperacionBinaria instance = null;</span>
+
+<span class="fc" id="L13">    private Resta() {</span>
+<span class="fc" id="L14">    }</span>
+
+    public static OperacionBinaria getInstance() {
+<span class="fc bfc" id="L17" title="All 2 branches covered.">        if (instance == null) {</span>
+<span class="fc" id="L18">            instance = new Resta();</span>
+        }
+<span class="fc" id="L20">        return instance;</span>
+    }
+
+    @Override
+
+    public Operando operar(Operando op1, Operando op2) {
+<span class="fc" id="L26">        return new Operando(op1.getOperando()</span>
+<span class="fc" id="L27">                .subtract(op2.getOperando(), mathContext));</span>
+    }
+
+    @Override
+    public String toString() {
+<span class="fc" id="L32">        return &quot;Resta&quot;;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.5.201505241946</span></div></body></html>

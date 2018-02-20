@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>Collatz.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;DS-34-11-B1&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">ejercicio1</a> &gt; <span class="el_source">Collatz.java</span></div><h1>Collatz.java</h1><pre class="source lang-java linenums">package ejercicio1;
+
+/**
+ * @author p.costa
+ * @author pablo.aragunde
+ */
+<span class="nc" id="L7">public class Collatz {</span>
+
+    public static final int MAX_ARRAY_SIZE = 300;
+
+    /**
+     * Método que toma un número natural n y devuelve la serie de Collatz
+     * asociada a ese número.
+     *
+     * @param n número a partir de el que se generará la serie
+     * @return int[] serie de Collatz asociada a n
+     */
+    public static int[] collatz(int n) {
+<span class="fc bfc" id="L19" title="All 2 branches covered.">        if (n &lt;= 0) {</span>
+<span class="fc" id="L20">            throw new IllegalArgumentException(&quot;El parámetro n debe ser positivo&quot;);</span>
+        } else {
+<span class="fc" id="L22">            int[] serie = new int[MAX_ARRAY_SIZE];</span>
+<span class="fc" id="L23">            int i = 0;</span>
+<span class="fc" id="L24">            serie[i] = n; //guardamos el primer término de la serie</span>
+<span class="fc bfc" id="L25" title="All 2 branches covered.">            while (n != 1) {</span>
+<span class="fc" id="L26">                i++;</span>
+<span class="fc bfc" id="L27" title="All 2 branches covered.">                if (n % 2 == 0) { //es par</span>
+<span class="fc" id="L28">                    n = n / 2;</span>
+<span class="fc" id="L29">                    serie[i] = n;</span>
+                } else {          //es impar
+<span class="fc" id="L31">                    n = n * 3 + 1;</span>
+<span class="fc" id="L32">                    serie[i] = n;</span>
+                }
+            }
+<span class="fc" id="L35">            return serie;</span>
+        }
+    }
+
+    /**
+     * Método que devuelve la longitud de una serie de Collatz que se pasa por
+     * parámetro.
+     *
+     * @param list serie de Collatz en forma de array de ints
+     * @return int longitud de la serie
+     */
+    public static int lengthCollatz(int[] list) {
+<span class="fc bfc" id="L47" title="All 2 branches covered.">        if (list == null) {</span>
+<span class="fc" id="L48">            throw new IllegalArgumentException(&quot;La lista proporcionada no es válida&quot;);</span>
+        } else {
+            int i;
+<span class="pc bpc" id="L51" title="1 of 2 branches missed.">            for (i = 0; i &lt; list.length; i++) {</span>
+<span class="fc bfc" id="L52" title="All 2 branches covered.">                if (list[i] == 1) {</span>
+<span class="fc" id="L53">                    break;</span>
+                }
+            }
+<span class="fc" id="L56">            return i + 1;</span>
+        }
+    }
+    
+//    Recursion is way too cool to be used in java :D
+//    private static int internalCollatz(int n) {
+//        System.out.println(n);
+//        if (n == 1) {
+//            return 1;
+//        } else if ((n % 2) == 0) {
+//            return internalCollatz(n/ 2);
+//        }
+//        if ((n % 2) != 0) {
+//            return internalCollatz(n * 3 + 1);
+//        } else {
+//            return 1;
+//        }
+//    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.5.201505241946</span></div></body></html>

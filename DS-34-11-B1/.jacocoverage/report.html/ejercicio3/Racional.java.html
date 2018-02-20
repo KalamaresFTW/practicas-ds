@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>Racional.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;DS-34-11-B1&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">ejercicio3</a> &gt; <span class="el_source">Racional.java</span></div><h1>Racional.java</h1><pre class="source lang-java linenums">package ejercicio3;
+
+import java.math.BigInteger;
+
+/**
+ * @author pablo.aragunde   (Pablo Aragunde Canabal)
+ * @author p.costa          (Pablo Costa Oubiña)
+ */
+public class Racional {
+    private final int numerador;
+    private final int denominador;
+
+    public int getNumerador() {
+<span class="fc" id="L14">        return numerador;</span>
+    }
+
+    public int getDenominador() {
+<span class="fc" id="L18">        return denominador;</span>
+    }
+
+<span class="fc" id="L21">    public Racional(int numerador, int denominador){</span>
+<span class="fc" id="L22">        this.numerador = numerador;</span>
+<span class="fc bfc" id="L23" title="All 2 branches covered.">        if (denominador != 0) {</span>
+<span class="fc" id="L24">            this.denominador = denominador;</span>
+        }
+        else {
+<span class="fc" id="L27">            throw new IllegalArgumentException(&quot;El denominador no puede ser 0!&quot;);</span>
+        }       
+<span class="fc" id="L29">    }</span>
+    
+<span class="fc" id="L31">    public Racional(Racional r){</span>
+<span class="fc" id="L32">        this.numerador = r.numerador;</span>
+<span class="fc" id="L33">        this.denominador = r.denominador;</span>
+<span class="fc" id="L34">    }</span>
+    
+    /**
+     * función que dado un Racional r devuelve el int que representa el máximo
+     * común divisor de numerador y denominador
+     * @param r
+     * @return el mcd de numerador y denominador
+     */
+    private static int mcd(Racional r) {
+<span class="fc" id="L43">        int a = r.numerador;</span>
+<span class="fc" id="L44">        BigInteger b1 = BigInteger.valueOf(a);</span>
+<span class="fc" id="L45">        int b = r.denominador;</span>
+<span class="fc" id="L46">        BigInteger b2 = BigInteger.valueOf(b);</span>
+        
+<span class="fc" id="L48">        BigInteger mcd = b1.gcd(b2);</span>
+<span class="fc" id="L49">        return mcd.intValue();</span>
+    }
+    
+    /**
+     * función que simplifica la relación entre numerador y denominador a 
+     * su expresión mínima
+     * @return la forma simplificada del Racional al que se aplica
+     */
+    public Racional simplificar(){
+<span class="fc" id="L58">        int mcd = mcd(this);</span>
+<span class="fc" id="L59">        return (new Racional(this.numerador / mcd, this.denominador / mcd));</span>
+    }
+    
+    /**
+     * función que suma dos Racionales
+     * @param r
+     * @return la suma de los dos racionales
+     */
+    public Racional mas(Racional r){
+<span class="fc" id="L68">        int num = this.numerador * r.denominador</span>
+                + this.denominador * r.numerador;
+<span class="fc" id="L70">        int den = this.denominador * r.denominador;</span>
+
+<span class="fc" id="L72">        return (new Racional(num, den)).simplificar();</span>
+        
+    }
+    
+    public Racional menos(Racional r){
+<span class="fc" id="L77">        int num = this.numerador * r.denominador </span>
+                - this.denominador * r.numerador;
+<span class="fc" id="L79">        int den = this.denominador * r.denominador;</span>
+<span class="fc" id="L80">        return (new Racional(num, den)).simplificar();</span>
+    }
+    
+    public Racional por(Racional r){
+<span class="fc" id="L84">        int num = this.numerador * r.numerador;</span>
+<span class="fc" id="L85">        int den = this.denominador * r.denominador;</span>
+<span class="fc" id="L86">        return (new Racional(num, den)).simplificar();</span>
+    }
+    
+    public Racional entre(Racional r){
+<span class="fc" id="L90">        int num = this.numerador * r.denominador;</span>
+<span class="fc" id="L91">        int den = this.denominador * r.numerador;</span>
+<span class="fc" id="L92">        return (new Racional(num, den)).simplificar();</span>
+    }
+    
+    @Override
+    public String toString(){
+<span class="fc" id="L97">        String num = String.valueOf(this.numerador);</span>
+<span class="fc" id="L98">        String den = String.valueOf(this.denominador);</span>
+<span class="fc" id="L99">        return num+&quot;/&quot;+den;</span>
+    }
+
+    @Override
+    public int hashCode() {
+<span class="fc" id="L104">        int hash = 7;</span>
+<span class="fc" id="L105">        hash = 53 * hash + this.numerador;</span>
+<span class="fc" id="L106">        hash = 53 * hash + this.denominador;</span>
+<span class="fc" id="L107">        return hash;</span>
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+<span class="fc bfc" id="L112" title="All 2 branches covered.">        if (this == obj) {</span>
+<span class="fc" id="L113">            return true;</span>
+        }
+<span class="fc bfc" id="L115" title="All 2 branches covered.">        if (obj == null) {</span>
+<span class="fc" id="L116">            return false;</span>
+        }
+<span class="fc bfc" id="L118" title="All 2 branches covered.">        if (getClass() != obj.getClass()) {</span>
+<span class="fc" id="L119">            return false;</span>
+        }
+<span class="fc" id="L121">        final Racional other = (Racional) obj;</span>
+        
+        //son equivalentes si multiplicando en cruz son iguales
+<span class="fc bfc" id="L124" title="All 2 branches covered.">        return ((this.numerador) * (other.denominador)</span>
+                == (this.denominador * other.numerador));
+    }
+       
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.5.201505241946</span></div></body></html>

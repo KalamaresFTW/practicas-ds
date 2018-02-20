@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>Opuesta.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;DS-34-11-PD&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">modelo.operacionesUnarias</a> &gt; <span class="el_source">Opuesta.java</span></div><h1>Opuesta.java</h1><pre class="source lang-java linenums">package modelo.operacionesUnarias;
+
+import modelo.Operando;
+
+/**
+ *
+ * @author Pablo
+ */
+public class Opuesta implements OperacionUnaria {
+
+<span class="fc" id="L11">    private static OperacionUnaria instance = null;</span>
+
+<span class="fc" id="L13">    private Opuesta() {</span>
+<span class="fc" id="L14">    }</span>
+
+    public static OperacionUnaria getInstance() {
+<span class="fc bfc" id="L17" title="All 2 branches covered.">        if (instance == null) {</span>
+<span class="fc" id="L18">            instance = new Opuesta();</span>
+        }
+<span class="fc" id="L20">        return instance;</span>
+    }
+    
+    @Override
+    public Operando operar(Operando op1) {
+<span class="fc" id="L25">        return new Operando(op1.getOperando().negate());</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.5.201505241946</span></div></body></html>

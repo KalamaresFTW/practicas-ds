@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>Cliente.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;DS-34-11-B1&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">ejercicio5</a> &gt; <span class="el_source">Cliente.java</span></div><h1>Cliente.java</h1><pre class="source lang-java linenums">package ejercicio5;
+
+/**
+ * Clase que representa un cliente. Añade los campos codCliente y numCompras a
+ * la clase Persona
+ * 
+ * @author p.costa          (Pablo Costa Oubiña)
+ * @author pablo.aragunde   (Pablo Aragunde Canabal)
+ */
+public final class Cliente extends Persona {
+
+    private final String codCliente;
+    private int numCompras;
+
+    /**
+     * Constructor de la clase Cliente que permite instanciar un cliente con un
+     * número de compras proporcionado por parámetro.
+     *
+     * @param nombre
+     * @param apellido1
+     * @param apellido2
+     * @param dni
+     * @param direccion
+     * @param telefono
+     * @param codCliente
+     * @param numCompras
+     */
+    public Cliente(String nombre,
+            String apellido1,
+            String apellido2,
+            String dni,
+            String direccion,
+            String telefono,
+            String codCliente,
+            int numCompras) {
+<span class="fc" id="L36">        super(nombre, apellido1, apellido2, dni, direccion, telefono);</span>
+<span class="fc" id="L37">        this.codCliente = codCliente;</span>
+<span class="fc" id="L38">        this.numCompras = numCompras;</span>
+<span class="fc" id="L39">    }</span>
+    
+    /**
+     * Constructor de la clase Cliente que permite instanciar un cliente con el
+     * número de compras a 0.
+     *
+     * @param nombre
+     * @param apellido1
+     * @param apellido2
+     * @param dni
+     * @param direccion
+     * @param telefono
+     * @param codCliente
+     */
+    public Cliente(String nombre,
+            String apellido1,
+            String apellido2,
+            String dni,
+            String direccion,
+            String telefono,
+            String codCliente) {
+<span class="fc" id="L60">        this(nombre, apellido1, apellido2, dni, direccion, telefono, codCliente,</span>
+                0);
+<span class="fc" id="L62">    }</span>
+
+    /**
+     * Aumenta en uno el número de compras del cliente
+     *
+     * @return el número de compras del cliente tras haber realizado la compra
+     */
+    public int comprar() {
+<span class="fc" id="L70">        return ++numCompras;</span>
+    }
+
+    /**
+     * Calcula el descuento que se le aplica al cliente. 
+     * Por cada 100 compras se le aplica un 1% de descuento. 
+     * @return 
+     */
+    public double getDescuento() {
+<span class="fc" id="L79">        return (numCompras/100)  * 0.01D;</span>
+    }
+    
+    /**
+     * Devuelve el número de compras que ha efectuado un cliente
+     * @return numCompras (int)
+     */
+    public int getNumCompras() {
+<span class="fc" id="L87">        return numCompras;</span>
+    }
+    
+    /**
+     * Permite cambiar el valor del atributo numCompras
+     * @param numCompras (int)
+     */
+    public void setNumCompras(int numCompras){
+<span class="fc" id="L95">        this.numCompras = numCompras;</span>
+<span class="fc" id="L96">    }</span>
+    
+    /**
+     * Devuelve el código del cliente
+     * @return codCliente (String)
+     */
+    public String getCodCliente() {
+<span class="fc" id="L103">        return codCliente;</span>
+    }
+
+    @Override
+    public String toString() {
+<span class="fc" id="L108">        return super.toString()</span>
+                + &quot;\nCliente:&quot; 
+                + &quot;\n\tCódigo de cliente: &quot; + codCliente
+                + &quot;\n\tNúmero de compras: &quot; + numCompras;
+    }
+    
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.5.201505241946</span></div></body></html>

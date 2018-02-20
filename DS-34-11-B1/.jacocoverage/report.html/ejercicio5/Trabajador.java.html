@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>Trabajador.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;DS-34-11-B1&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">ejercicio5</a> &gt; <span class="el_source">Trabajador.java</span></div><h1>Trabajador.java</h1><pre class="source lang-java linenums">package ejercicio5;
+
+/**
+ * Clase que representa a un trabajador, añade a persona los campos nss, salario
+ * y turno.
+ *
+ * @author p.costa          (Pablo Costa Oubiña)
+ * @author pablo.aragunde   (Pablo Aragunde Canabal)
+ */
+public abstract class Trabajador extends Persona {
+
+    private final String nss;
+    private double salario;
+    private Turno turno;
+
+    /**
+     * Constructor de la clase trabajador
+     *
+     * @param nombre
+     * @param apellido1
+     * @param apellido2
+     * @param dni
+     * @param direccion
+     * @param telefono
+     * @param nss
+     * @param salario
+     * @param turno
+     */
+    public Trabajador(String nombre,
+            String apellido1,
+            String apellido2,
+            String dni,
+            String direccion,
+            String telefono,
+            String nss,
+            double salario,
+            Turno turno) {
+<span class="fc" id="L38">        super(nombre, apellido1, apellido2, dni, direccion, telefono);</span>
+<span class="fc" id="L39">        this.nss = nss;</span>
+<span class="fc" id="L40">        this.salario = salario;</span>
+<span class="fc" id="L41">        this.turno = turno;</span>
+<span class="fc" id="L42">    }</span>
+    
+    /**
+     * Devuelve el número de la seguridad social
+     * @return nss (String)
+     */
+    public String getNSS(){
+<span class="fc" id="L49">        return this.nss;</span>
+    }
+    
+    /**
+     * Permite cambiar el salario de un trabajador
+     * @param s (double), el nuevo salario del trabajador
+     */
+    public void cambiarSalario(double s){
+<span class="fc" id="L57">        this.salario = s;</span>
+<span class="fc" id="L58">    }</span>
+    
+    /**
+     * Devuelve el salario del trabajador
+     *
+     * @return el salario en función del turno en el que trabaja
+     */
+    public double getSalario() {
+<span class="fc bfc" id="L66" title="All 2 branches covered.">        if (turno == Turno.NOCHE) {</span>
+<span class="fc" id="L67">            return salario + 150;</span>
+        }
+<span class="fc" id="L69">        return salario;</span>
+    }
+
+    /**
+     * Cambia el turno actual por t
+     *
+     * @param t
+     */
+    public void cambiarTurno(Turno t) {
+<span class="fc" id="L78">        this.turno = t;</span>
+<span class="fc" id="L79">    }</span>
+    
+    /**
+     * Devuelve el turno del trabajador (tipo enumerado Turno)
+     * 
+     * @return 
+     */
+    public Turno getTurno(){
+<span class="fc" id="L87">        return turno;</span>
+    }
+    
+    @Override
+    public String toString() {
+<span class="fc" id="L92">        return super.toString()</span>
+                + &quot;\nTrabajador:&quot;
+                + &quot;\n\tNSS: &quot; + nss 
+                + &quot;\n\tSalario: &quot; + salario
+                + &quot;\n\tTurno: &quot; + turno;
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.5.201505241946</span></div></body></html>

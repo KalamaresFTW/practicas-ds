@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>Memoria.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;DS-34-11-PD&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">modelo.calculadora</a> &gt; <span class="el_source">Memoria.java</span></div><h1>Memoria.java</h1><pre class="source lang-java linenums">package modelo.calculadora;
+
+import modelo.Operando;
+import modelo.calculadora.estadosMemoria.EstadoMemoria;
+import modelo.calculadora.estadosMemoria.Vacia;
+
+/**
+ *
+ * @author Pablo
+ */
+public class Memoria {
+
+    private Operando dato;
+
+    private EstadoMemoria estado;
+
+<span class="fc" id="L17">    public Memoria() {</span>
+<span class="fc" id="L18">        this.dato = new Operando(&quot;0.&quot;);</span>
+<span class="fc" id="L19">        this.estado = Vacia.getInstance();</span>
+<span class="fc" id="L20">    }</span>
+
+    public Operando leerMemoria() {
+<span class="fc" id="L23">        return estado.leerMemoria(this);</span>
+    }
+
+    public void escribirMemoria(Operando nuevoDato) {
+<span class="fc" id="L27">        estado.escribirMemoria(nuevoDato, this);</span>
+<span class="fc" id="L28">    }</span>
+
+    public void limpiarMemoria() {
+<span class="fc" id="L31">        estado.limpiarMemoria(this);</span>
+<span class="fc" id="L32">    }</span>
+
+    public void sumarMemoria(Operando o) {
+<span class="fc" id="L35">        estado.sumarMemoria(o, this);</span>
+<span class="fc" id="L36">    }</span>
+
+    public void restarMemoria(Operando o) {
+<span class="fc" id="L39">        estado.restarMemoria(o, this);</span>
+<span class="fc" id="L40">    }</span>
+
+    public Operando getDato() {
+<span class="fc" id="L43">        return dato;</span>
+    }
+
+    public void setDato(Operando dato) {
+<span class="fc" id="L47">        this.dato = dato;</span>
+<span class="fc" id="L48">    }</span>
+
+    public void setEstado(EstadoMemoria estado) {
+<span class="fc" id="L51">        this.estado = estado;</span>
+<span class="fc" id="L52">    }</span>
+    
+    public EstadoMemoria getEstado(){
+<span class="fc" id="L55">        return this.estado;</span>
+    }
+
+    @Override
+    public String toString() {
+<span class="fc" id="L60">        return &quot;Memoria: &quot; + estado.toString() + &quot; dato = &quot; + dato;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.5.201505241946</span></div></body></html>
